@@ -1,9 +1,9 @@
 <img width="350" src="https://raw.githubusercontent.com/rodrigo-brito/gocity/master/pkg/server/assets/logo.png" alt="GoCity" />
 
-[![Actions Status](https://github.com/rodrigo-brito/gocity/workflows/tests/badge.svg)](https://github.com/rodrigo-brito/gocity/actions)
+[![Actions Status](https://github.com/gofu/gocity/workflows/tests/badge.svg)](https://github.com/gofu/gocity/actions)
 [![codecov](https://codecov.io/gh/rodrigo-brito/gocity/branch/master/graph/badge.svg)](https://codecov.io/gh/rodrigo-brito/gocity)
-[![Go Report Card](https://goreportcard.com/badge/github.com/rodrigo-brito/gocity)](https://goreportcard.com/report/github.com/rodrigo-brito/gocity)
-[![GoDoc](https://godoc.org/github.com/rodrigo-brito/gocity?status.svg)](https://godoc.org/github.com/rodrigo-brito/gocity)
+[![Go Report Card](https://goreportcard.com/badge/github.com/gofu/gocity)](https://goreportcard.com/report/github.com/gofu/gocity)
+[![GoDoc](https://godoc.org/github.com/gofu/gocity?status.svg)](https://godoc.org/github.com/gofu/gocity)
 <a href="https://opensource.org/licenses/MIT">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT">
 </a>
@@ -28,8 +28,8 @@ GoCity is an implementation of the Code City metaphor for visualizing source cod
  
 ## Installation
 
-- `go install github.com/rodrigo-brito/gocity@latest`
-- Or just head to the [releases](https://github.com/rodrigo-brito/gocity/releases) page and download the latest version for you platform.
+- `go install github.com/gofu/gocity@latest`
+- Or just head to the [releases](https://github.com/gofu/gocity/releases) page and download the latest version for you platform.
 
 ## Usage:
 - Online: https://go-city.github.io
@@ -40,7 +40,7 @@ GoCity is an implementation of the Code City metaphor for visualizing source cod
  
 ## UI / Front-end
 
-The UI is built with React and uses [babylon.js](https://www.babylonjs.com/) to plot 3D structures. The front-end source code is available in the [front-end](https://github.com/rodrigo-brito/gocity/tree/front-end) branch. 
+The UI is built with React and uses [babylon.js](https://www.babylonjs.com/) to plot 3D structures. The front-end source code is available in the [front-end](https://github.com/gofu/gocity/tree/front-end) branch. 
  
 ### Related Works
 - [Code City](https://wettel.github.io/codecity.html) by [Richard Wettel](https://twitter.com/richardwettel)

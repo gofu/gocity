@@ -4,7 +4,7 @@ import (
 	"go/ast"
 	"go/token"
 
-	"github.com/rodrigo-brito/gocity/pkg/lib"
+	"github.com/gofu/gocity/pkg/lib"
 )
 
 type NodeInfo struct {
@@ -64,10 +64,12 @@ func (v *Visitor) Visit(node ast.Node) ast.Visitor {
 			if ident, ok := typeObj.(*ast.Ident); ok {
 				structName = ident.Name
 			} else {
-				if ident, ok := typeObj.(*ast.StarExpr).X.(*ast.Ident); ok {
-					structName = ident.Name
-				} else if ident, ok := typeObj.(*ast.StarExpr).X.(*ast.SelectorExpr); ok {
-					structName = ident.Sel.Name
+				if startExpr, ok := typeObj.(*ast.StarExpr); ok {
+					if ident, ok := startExpr.X.(*ast.Ident); ok {
+						structName = ident.Name
+					} else if ident, ok := startExpr.X.(*ast.SelectorExpr); ok {
+						structName = ident.Sel.Name
+					}
 				}
 			}
 		}

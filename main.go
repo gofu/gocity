@@ -5,10 +5,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/rodrigo-brito/gocity/pkg/lib"
-	"github.com/rodrigo-brito/gocity/pkg/server"
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
+
+	"github.com/gofu/gocity/pkg/lib"
+	"github.com/gofu/gocity/pkg/server"
 )
 
 const (
@@ -49,6 +50,7 @@ func main() {
 					Cache:     lib.NewCache(),
 					TmpFolder: os.TempDir(),
 					CacheTTL:  c.Duration("cache"),
+					Host:      c.String("host"),
 					Port:      c.Int("port"),
 				}
 				return analyzer.Serve()
@@ -71,6 +73,12 @@ func main() {
 					Value:   "master",
 					Usage:   "Specify a custom branch",
 				},
+				&cli.StringFlag{
+					Name:    "host",
+					Aliases: []string{"o"},
+					Value:   "",
+					Usage:   "Specify a custom interface to listen on",
+				},
 			},
 			Action: func(c *cli.Context) error {
 				var local bool
@@ -92,6 +100,7 @@ func main() {
 				analyzer := server.AnalyzerHandle{
 					Cache:       lib.NewCache(),
 					TmpFolder:   os.TempDir(),
+					Host:        c.String("host"),
 					Port:        c.Int("port"),
 					ProjectPath: &projectAddress,
 					Local:       local,

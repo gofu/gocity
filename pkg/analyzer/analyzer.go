@@ -9,8 +9,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/rodrigo-brito/gocity/pkg/lib"
 	log "github.com/sirupsen/logrus"
+
+	"github.com/gofu/gocity/pkg/lib"
 )
 
 type Analyzer interface {

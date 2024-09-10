@@ -1,6 +1,6 @@
-module github.com/rodrigo-brito/gocity
+module github.com/gofu/gocity
 
-go 1.17
+go 1.23.1
 
 require (
 	github.com/go-chi/chi v1.5.4

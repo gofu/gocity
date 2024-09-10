@@ -2,11 +2,12 @@ package model
 
 import (
 	"fmt"
+	"path/filepath"
 	"sort"
 	"strings"
 
-	"github.com/rodrigo-brito/gocity/pkg/analyzer"
-	"github.com/rodrigo-brito/gocity/pkg/lib"
+	"github.com/gofu/gocity/pkg/analyzer"
+	"github.com/gofu/gocity/pkg/lib"
 )
 
 type NodeType string
@@ -108,6 +109,7 @@ func getPathAndFile(fullPath string) (paths []string, fileName, structName strin
 }
 
 func New(items map[string]*analyzer.NodeInfo, repositoryName string, repositoryBranch string) *Node {
+	repositoryName = filepath.ToSlash(repositoryName)
 	tree := &Node{
 		Name:        repositoryName,
 		Branch:      repositoryBranch,
@@ -117,7 +119,7 @@ func New(items map[string]*analyzer.NodeInfo, repositoryName string, repositoryB
 
 	for key, value := range items {
 		currentNode := tree
-		paths, fileName, structName := getPathAndFile(key)
+		paths, fileName, structName := getPathAndFile(filepath.ToSlash(key))
 		for _, path := range paths {
 			_, ok := currentNode.childrenMap[path]
 			if !ok {

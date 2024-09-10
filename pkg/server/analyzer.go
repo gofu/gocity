@@ -9,10 +9,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/rodrigo-brito/gocity/pkg/analyzer"
-	"github.com/rodrigo-brito/gocity/pkg/lib"
-	"github.com/rodrigo-brito/gocity/pkg/model"
-	"github.com/rodrigo-brito/gocity/pkg/server/middlewares"
+	"github.com/gofu/gocity/pkg/analyzer"
+	"github.com/gofu/gocity/pkg/lib"
+	"github.com/gofu/gocity/pkg/model"
+	"github.com/gofu/gocity/pkg/server/middlewares"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
@@ -31,6 +31,7 @@ type AnalyzerHandle struct {
 	Cache       lib.Cache
 	CacheTTL    time.Duration
 	TmpFolder   string
+	Host        string
 	Port        int
 	ProjectPath *string
 	Branch      *string
@@ -148,5 +149,5 @@ func (h *AnalyzerHandle) Serve() error {
 		log.Infof("Server started at %s", baseURL)
 	}
 
-	return http.ListenAndServe(fmt.Sprintf(":%d", h.Port), router)
+	return http.ListenAndServe(fmt.Sprintf("%s:%d", h.Host, h.Port), router)
 }
